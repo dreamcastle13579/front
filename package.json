@@ -1,4 +1,8 @@
 {
+  "priviate": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "name": "front",
   "version": "1.0.0",
   "main": "index.js",
