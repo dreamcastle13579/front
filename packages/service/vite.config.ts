@@ -7,10 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "intro-storybook-react-template": path.resolve(
-        __dirname,
-        "../design-system/src"
-      ),
+      "design-system": path.resolve(__dirname, "../design-system/src"),
     },
   },
 });
