@@ -1,7 +1,8 @@
-import { worker } from "./browser";
+const initMockApi = async () => {
+  const { createWorker } = await import("./browser");
 
-const startMock = () => {
-  worker.start();
+  const worker = await createWorker();
+  await worker.start();
 };
 
-export default startMock;
+export default initMockApi;

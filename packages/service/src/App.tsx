@@ -6,7 +6,7 @@ import "./App.css";
 import startWorker from "./msw";
 
 if (import.meta.env.DEV) {
-  startWorker();
+  await startWorker();
 }
 
 function App() {
