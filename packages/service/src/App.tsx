@@ -4,12 +4,18 @@ import startWorker from "./msw";
 
 import RootRoutes from "./Routes";
 
+import { AppProvider } from "./context";
+
 if (import.meta.env.DEV) {
   await startWorker();
 }
 
 function App() {
-  return <RootRoutes />;
+  return (
+    <AppProvider>
+      <RootRoutes />
+    </AppProvider>
+  );
 }
 
 export default App;
