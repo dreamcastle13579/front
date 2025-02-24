@@ -1,9 +1,28 @@
 import React from "react";
 
-const AppContext = React.createContext<null>(null);
+interface InterPret {
+  messages: string[];
+  category: string;
+}
+
+interface DreamState {
+  nickname?: string;
+  content?: string;
+  interpret?: InterPret;
+}
+
+const AppContext = React.createContext<{
+  dream: DreamState | null;
+  setDream: (state: DreamState) => void;
+} | null>(null);
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  return <AppContext.Provider value={null}>{children}</AppContext.Provider>;
+  const [dream, setDream] = React.useState<DreamState | null>(null);
+  return (
+    <AppContext.Provider value={{ dream, setDream }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export default AppProvider;
