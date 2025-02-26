@@ -1,16 +1,19 @@
 import React from "react";
 
-const Page = () => {
-  return null;
-};
+import Onboarding from "../pages/Onboarding";
+import Nickname from "../pages/Nickname";
+import Interpret from "../pages/Interpret";
+import Result from "../pages/Result";
+import Relief from "../pages/Relief";
+import Analysis from "../pages/Analysis";
 
 const routes = [
-  { url: "/", element: <Page /> },
-  { url: "/nickname", element: <Page /> },
-  { url: "/interpret", element: <Page /> },
-  { url: "/result", element: <Page /> },
-  { url: "/relief", element: <Page /> },
-  { url: "/analysis", element: <Page /> },
+  { url: "/", element: <Onboarding /> },
+  { url: "/nickname", element: <Nickname /> },
+  { url: "/interpret", element: <Interpret /> },
+  { url: "/result/:id", element: <Result /> },
+  { url: "/relief", element: <Relief /> },
+  { url: "/analysis", element: <Analysis /> },
 ];
 
 export default routes;
