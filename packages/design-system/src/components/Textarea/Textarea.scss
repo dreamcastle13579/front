@@ -1,0 +1,19 @@
+.ui-textarea textarea {
+  height: 27px;
+  line-height: 27px;
+
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 27.2px */
+
+  width: 100%;
+  border: none;
+
+  background: transparent;
+}
+
+.ui-textarea textarea:focus {
+  outline: none;
+}
