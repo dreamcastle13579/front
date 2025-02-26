@@ -1,0 +1,22 @@
+.ui-digit-text {
+  margin-top: 12px;
+  text-align: right;
+
+  color: #73787e;
+  /* 12/Medium */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 133.4%; /* 16.008px */
+  letter-spacing: 0.302px;
+}
+
+.ui-digit-text .digit-text {
+  padding-right: 4px;
+  color: #1b1d1f;
+}
+.ui-digit-text .digit-total {
+  padding-left: 4px;
+  color: #73787e;
+}
