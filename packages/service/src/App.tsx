@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./styles/index.scss";
+
 import startWorker from "./msw";
 
 import RootRoutes from "./Routes";
