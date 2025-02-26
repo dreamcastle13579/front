@@ -1,0 +1,47 @@
+.ui-bubble.bubble-input {
+  height: 150px;
+  margin-top: 24px;
+  margin-bottom: 66px;
+  margin-bottom: 78px;
+  background: url("./imgs/bubble-input.svg") center center no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // background-color: #fdfdfd; /* 원하는 아이콘 색상 */
+  // -webkit-mask-image: url("./imgs/bubble-input.svg");
+  // mask-image: url("./imgs/bubble-input.svg");
+  // -webkit-mask-size: cover;
+  // mask-size: cover;
+  // -webkit-mask-repeat: no-repeat;
+  // mask-repeat: no-repeat;
+}
+
+.ui-bubble.bubble-textarea {
+  margin: 0 auto;
+  width: 328px;
+  height: 416px;
+  margin-bottom: 43px;
+  padding: 36px 38px;
+  background: url("./imgs/bubble-textarea.svg") center center no-repeat;
+  background-size: auto 100%;
+  box-sizing: border-box;
+}
+
+.ui-bubble.bubble-textbox {
+  height: 244px;
+  padding: 57px 36px 40px;
+  background: url("./imgs/bubble-textbox.svg") center center no-repeat;
+  box-sizing: border-box;
+}
+
+.ui-bubble.bubble-textbox .textbox {
+  color: var(--Text-Primary, #1b1d1f);
+  font-family: SejongGeulggot;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6; /* 27.2px */
+  padding-bottom: 13.5px;
+}
