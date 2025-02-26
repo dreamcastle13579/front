@@ -7,7 +7,7 @@ import RootRoutes from "./Routes";
 import { AppProvider } from "./context";
 
 if (import.meta.env.DEV) {
-  await startWorker();
+  // await startWorker();
 }
 
 function App() {
