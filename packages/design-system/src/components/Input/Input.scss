@@ -1,0 +1,26 @@
+.ui-input input {
+  display: inline-block;
+  height: 27px;
+
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27px;
+
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+
+.ui-input input::placeholder {
+  color: #73787e;
+}
+
+.ui-input input:focus {
+  outline: none;
+}
+
+.ui-input.align-center input {
+  text-align: center;
+}
