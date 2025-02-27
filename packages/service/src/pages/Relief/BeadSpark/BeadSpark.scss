@@ -1,0 +1,14 @@
+.bead-relief-img {
+  position: relative;
+  padding: 0 18.5px;
+}
+.bead-relief-img .bead-relief {
+  width: 100%;
+}
+.bead-relief-img .bead-relief-spark {
+  width: calc(38%);
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  transform: translateX(-50%);
+}
