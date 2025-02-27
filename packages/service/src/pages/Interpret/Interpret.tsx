@@ -25,20 +25,26 @@ const Interpret = () => {
     <Layout>
       <Main>
         <ContentBox>
-          <Title title="info">오늘 내가 꾼 꿈은...</Title>
-          <Bubble bubble="textarea">
-            <Textarea
-              value=""
-              placeholder="오늘 꾼 꿈을 입력해주세요"
-              onChange={() => {}}
-            ></Textarea>
-            <DigitText total="250">282</DigitText>
-          </Bubble>
-          <ButtonBox>
-            <Button variant="primary" onClick={handelMoveToPage}>
-              이게 내 꿈이야
-            </Button>
-          </ButtonBox>
+          <div className="full-box interpret-full-box">
+            <div className="full-box-content">
+              <Title title="info">오늘 내가 꾼 꿈은...</Title>
+              <Bubble bubble="textarea">
+                <Textarea
+                  value=""
+                  placeholder="오늘 꾼 꿈을 입력해주세요"
+                  onChange={() => {}}
+                ></Textarea>
+                <DigitText total="250">282</DigitText>
+              </Bubble>
+            </div>
+            <div className="full-box-bottom">
+              <ButtonBox>
+                <Button variant="primary" onClick={handelMoveToPage}>
+                  이게 내 꿈이야
+                </Button>
+              </ButtonBox>
+            </div>
+          </div>
         </ContentBox>
       </Main>
     </Layout>

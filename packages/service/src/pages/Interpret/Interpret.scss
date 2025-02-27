@@ -1,0 +1,15 @@
+.full-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.full-box .full-box-content {
+}
+
+.full-box .full-box-bottom {
+  margin-top: auto;
+}
+
+.full-box.interpret-full-box {
+  min-height: calc(100vh - 64px);
+}
