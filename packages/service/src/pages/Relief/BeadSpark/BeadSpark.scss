@@ -1,6 +1,9 @@
 .bead-relief-img {
   position: relative;
-  padding: 0 18.5px;
+  max-width: 375px;
+  padding: 0 38.5px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 .bead-relief-img .bead-relief {
   width: 100%;

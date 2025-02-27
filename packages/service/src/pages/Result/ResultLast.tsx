@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Title, TextBox, Button } from "design-system";
+import { Title, TextBox, Button, ButtonBox } from "design-system";
 
 import Bead from "./Bead";
 
@@ -20,10 +20,11 @@ const Result = () => {
         <br />
         원하는 것을 빌어봐라꿈
       </TextBox>
-
-      <Button variant="primary" onClick={handelMoveToPage}>
-        오 해볼래
-      </Button>
+      <ButtonBox>
+        <Button variant="primary" onClick={handelMoveToPage}>
+          오 해볼래
+        </Button>
+      </ButtonBox>
     </>
   );
 };
