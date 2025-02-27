@@ -1,0 +1,57 @@
+.game-layout {
+  // position: relative;
+  // overflow-x: hidden;
+  // height: calc(100vh - 60px - 60px);
+}
+.game-container {
+  min-height: inherit;
+
+  display: flex;
+  flex-direction: column;
+
+  // position: relative;
+  // z-index: 30;
+  // right: 0;
+  // left: 0;
+}
+.scene-layout {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+// .scene-box { // delete
+//   width: 100%;
+
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+// }
+
+.scene-layout-container {
+  display: flex;
+
+  flex: 1;
+}
+
+.scene-layout-box {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.full-box-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-box-bottom {
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: start;
+  display: flex;
+  flex-direction: column;
+}
