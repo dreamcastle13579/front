@@ -22,7 +22,7 @@ const FullPageInfo = (props: Props) => {
     "before"
   );
   return (
-    <ContentBox>
+    <>
       <div className={`ui-full-page-box info-${info}`}>
         <div className="ui-full-page-inner">
           <div className="ui-full-page-title">
@@ -53,7 +53,7 @@ const FullPageInfo = (props: Props) => {
           </div>
         </div>
       </div>
-    </ContentBox>
+    </>
   );
 };
 
