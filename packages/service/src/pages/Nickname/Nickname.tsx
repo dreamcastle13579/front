@@ -14,6 +14,8 @@ import {
   ContentBox,
 } from "design-system";
 
+import NickNameIntro from "./NickNameIntro";
+
 const Nickname = () => {
   const ref = React.useRef<HTMLInputElement>(null);
 
@@ -22,9 +24,18 @@ const Nickname = () => {
     navigate("/interpret");
   };
 
+  const time = React.useRef<number>(800 + 600);
+  const [isIntroLoadingDone, setIsIntroLoadingDone] = React.useState(false);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsIntroLoadingDone(true);
+    }, time.current);
+  }, []);
+
   return (
     <Layout>
       <Main>
+        {!isIntroLoadingDone && <NickNameIntro />}
         <ContentBox>
           <Title title="info">내 이름은</Title>
           <Bubble bubble="input">
