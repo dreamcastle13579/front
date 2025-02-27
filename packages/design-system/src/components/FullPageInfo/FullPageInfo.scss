@@ -1,3 +1,5 @@
+@import url("./FullPageInfoAnimation.scss");
+
 .ui-full-page-box {
   position: fixed;
   left: 0;
@@ -12,9 +14,10 @@
   top: 0;
   bottom: 0;
   left: 50%;
+  width: 100%;
   max-width: 375px;
   margin-left: -187.5px;
-  padding: 32px 20px;
+  padding: 32px 20px 32px;
   box-sizing: border-box;
 
   display: flex;
@@ -23,7 +26,7 @@
   overflow-y: auto;
 }
 .ui-full-page-box .ui-full-page-title {
-  padding-top: 20px;
+  margin-top: 20px;
   height: 163px;
   box-sizing: border-box;
 }

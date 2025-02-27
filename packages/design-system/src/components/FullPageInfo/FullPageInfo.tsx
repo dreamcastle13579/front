@@ -12,43 +12,62 @@ interface Data {
 
 interface Props {
   info?: string;
+  time?: number;
   before: Data;
   after?: Data;
 }
 
 const FullPageInfo = (props: Props) => {
-  const { info = "", before = {}, after = {} } = props;
-  const [currentState, seCurrentState] = React.useState<"before" | "after">(
+  const { info = "", time = 800, before = {}, after } = props;
+  const [currentState, setCurrentState] = React.useState<"before" | "after">(
     "before"
   );
+
+  React.useEffect(() => {
+    if (after) {
+      setTimeout(() => {
+        setCurrentState("after");
+      }, time);
+    }
+  }, []);
+
+  const isAnimation = !!after;
+  console.log("after", !after);
+  console.log(before.img === after?.img);
   return (
     <>
       <div className={`ui-full-page-box info-${info}`}>
         <div className="ui-full-page-inner">
-          <div className="ui-full-page-title">
-            {currentState === "before" ? (
-              <div className="ui-full-page-before">
-                <Title title="style">{before.title}</Title>
-              </div>
-            ) : (
+          <div className={`ui-full-page-title ${isAnimation ? "is-ani" : ""}`}>
+            <div className="ui-full-page-before">
+              <Title title="style">{before.title}</Title>
+            </div>
+            {currentState === "after" && (
               <div className="ui-full-page-after">
-                <Title title="style">{after.title}</Title>
+                <Title title="style">{after?.title}</Title>
               </div>
             )}
           </div>
-          <div className="ui-full-page-img">
-            {currentState === "before" ||
-            (currentState === "after" && before.img === after.img) ? (
+          <div
+            className={`ui-full-page-img ${
+              after && before.img !== (after && after?.img) ? "is-ani" : ""
+            }`}
+          >
+            {(!after ||
+              currentState === "before" ||
+              (currentState === "after" && before.img === after?.img)) && (
               <div className="ui-full-page-before">{before.img}</div>
-            ) : (
-              <div className="ui-full-page-after">{after.img}</div>
+            )}
+            {currentState === "after" && before.img !== after?.img && (
+              <div className="ui-full-page-after">{after?.img}</div>
             )}
           </div>
-          <div className="ui-full-page-content">
-            {currentState === "before" ? (
-              <div className="ui-full-page-before">{before.content}</div>
-            ) : (
-              <div className="ui-full-page-after">{after.content}</div>
+          <div
+            className={`ui-full-page-content ${isAnimation ? "is-ani" : ""}`}
+          >
+            <div className="ui-full-page-before">{before.content}</div>
+            {currentState === "after" && (
+              <div className="ui-full-page-after">{after?.content}</div>
             )}
           </div>
         </div>

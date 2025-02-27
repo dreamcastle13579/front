@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FullPageInfo } from "./";
 
 import ImgDummy from "./imgs/img-dummy.svg";
+import ImgDummyAfter from "./imgs/img-dummy-after.svg";
 
 export default {
   title: "Sample/FullPageInfo",
@@ -32,7 +33,22 @@ BeforeAfter.args = {
   },
   after: {
     title: "다음 타이틀",
-    img: <img src={ImgDummy} alt="" />,
+    img: <img src={ImgDummyAfter} alt="" />,
+    content: "안내 텍스트2",
+  },
+};
+
+const beforeAfterSameImg = <img src={ImgDummy} alt="" />;
+export const BeforeAfterSameImg = Template.bind({});
+BeforeAfterSameImg.args = {
+  before: {
+    title: "이전 타이틀",
+    img: beforeAfterSameImg,
     content: "안내 텍스트",
+  },
+  after: {
+    title: "다음 타이틀",
+    img: beforeAfterSameImg,
+    content: "안내 텍스트2",
   },
 };
