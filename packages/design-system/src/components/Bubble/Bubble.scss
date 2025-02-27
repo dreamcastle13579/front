@@ -20,7 +20,9 @@
   margin: 0 auto;
   height: 418px;
   margin-bottom: 43px;
-  padding: 36px 62px 30px;
+  width: 100%;
+  max-width: 335px;
+  padding: 36px 40px 30px;
   background: url("./imgs/bubble-textarea.svg") center center no-repeat;
   background-size: auto 100%;
   box-sizing: border-box;
