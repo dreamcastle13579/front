@@ -26,3 +26,11 @@ Exmaple.args = {
   children: <>{Array.from({ length: 6 }).map(() => lorem)}</>,
   bottom: <div style={{ border: "10px solid red" }}>bottom</div>,
 };
+
+export const Space = Template.bind({});
+Space.args = {
+  space: 100,
+  children: <>{Array.from({ length: 6 }).map(() => lorem)}</>,
+  bottomSpace: 150,
+  bottom: <div style={{ border: "10px solid red" }}>bottom</div>,
+};
