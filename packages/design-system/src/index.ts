@@ -6,6 +6,7 @@ import { Bubble } from "./components/Bubble";
 import { DigitText } from "./components/DigitText";
 import { ContentBox } from "./components/ContentBox";
 import { TextBox } from "./components/TextBox";
+import { FullPageInfo } from "./components/FullPageInfo";
 
 export {
   Input,
@@ -16,4 +17,5 @@ export {
   DigitText,
   ContentBox,
   TextBox,
+  FullPageInfo,
 };
