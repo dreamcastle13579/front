@@ -1,4 +1,5 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./styles/index.scss";
 
@@ -8,15 +9,19 @@ import RootRoutes from "./Routes";
 
 import { AppProvider } from "./context";
 
+const queryClient = new QueryClient();
+
 if (import.meta.env.DEV) {
   // await startWorker();
 }
 
 function App() {
   return (
-    <AppProvider>
-      <RootRoutes />
-    </AppProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppProvider>
+        <RootRoutes />
+      </AppProvider>
+    </QueryClientProvider>
   );
 }
 
