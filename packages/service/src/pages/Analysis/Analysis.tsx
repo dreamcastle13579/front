@@ -34,6 +34,26 @@ const Analysis = () => {
 
   const letter = getLetter(category);
 
+  const executeShare = (url: string) => {
+    navigator.share({ url });
+  };
+  const executeCopy = (data: string) => {
+    const $textarea = document.createElement("textarea");
+    document.body.appendChild($textarea);
+    $textarea.value = data;
+    $textarea.select();
+    document?.execCommand?.("copy");
+    document.body.removeChild($textarea);
+  };
+  const handleShare = () => {
+    const url = import.meta.env.VITE_BASE_URL;
+    if (!navigator.canShare()) {
+      return executeCopy(url);
+    }
+
+    return executeShare(url);
+  };
+
   return (
     <Layout>
       <Main>
@@ -45,7 +65,9 @@ const Analysis = () => {
             {letter}
           </LampBox>
           <ButtonBox>
-            <Button variant="secondary">공유하기</Button>
+            <Button variant="secondary" onClick={handleShare}>
+              공유하기
+            </Button>
             <Button variant="primary">저장하기</Button>
           </ButtonBox>
         </ContentBox>
