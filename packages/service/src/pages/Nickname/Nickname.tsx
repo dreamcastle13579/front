@@ -70,7 +70,10 @@ const Nickname = () => {
               maxLength={5}
               onChange={handleChange}
               align="center"
-              ref={ref}
+              ref={(node) => {
+                ref.current = node;
+                ref.current?.focus();
+              }}
             />
           </Bubble>
           <ButtonBox>

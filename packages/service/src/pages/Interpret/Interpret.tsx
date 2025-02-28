@@ -91,7 +91,10 @@ const Interpret = () => {
             <Title title="info">오늘 내가 꾼 꿈은...</Title>
             <Bubble bubble="textarea">
               <Textarea
-                ref={ref}
+                ref={(node) => {
+                  ref.current = node;
+                  ref.current?.focus();
+                }}
                 value={content}
                 placeholder="오늘 꾼 꿈을 입력해주세요"
                 maxLength={250}
