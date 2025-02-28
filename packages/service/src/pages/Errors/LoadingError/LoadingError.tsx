@@ -12,7 +12,7 @@ import ImgFairy from "./imgs/img-fairy.svg";
 const LoadingError = () => {
   const navigate = useNavigate();
   const handelMoveToPage = () => {
-    navigate("/nickname");
+    navigate(-1);
   };
 
   return (

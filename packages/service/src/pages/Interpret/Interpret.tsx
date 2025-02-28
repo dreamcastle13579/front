@@ -55,13 +55,18 @@ const Interpret = () => {
 
   const handleRequest = async () => {
     if (!dream?.nickname) return null;
-    const {
-      data: { result },
-    } = await postInterpret({ nickname: dream?.nickname, content });
-
-    setDream((prev) => {
-      return { ...prev, interpret: result } as DreamState;
-    });
+    try {
+      const {
+        data: { result },
+      } = await postInterpret({ nickname: dream?.nickname, content });
+      setDream((prev) => {
+        return { ...prev, interpret: result } as DreamState;
+      });
+    } catch (e) {
+      console.error(e);
+      navigate("/loading-error");
+      throw e;
+    }
   };
 
   return (
