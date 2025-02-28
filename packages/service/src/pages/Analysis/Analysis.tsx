@@ -86,7 +86,7 @@ const Analysis = () => {
   return (
     <Layout>
       <Main>
-        <ContentBox>
+        <div className="anlysis-content">
           <LampBox ref={ref}>
             {dream?.nickname}에게
             <br />
@@ -101,7 +101,7 @@ const Analysis = () => {
               저장하기
             </Button>
           </ButtonBox>
-        </ContentBox>
+        </div>
       </Main>
     </Layout>
   );
