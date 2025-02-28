@@ -39,7 +39,7 @@ const FullFixedBox = (props: Props) => {
               <div className="full-box-content">{children}</div>
               <div
                 className="full-box-bottom"
-                style={{ "margin-top": `-${bottomSpace}px` }}
+                style={{ marginTop: `-${bottomSpace}px` }}
               >
                 {bottom}
               </div>

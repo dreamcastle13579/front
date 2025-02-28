@@ -45,10 +45,10 @@ const ResultNum = () => {
           border: "1px solid red",
           display: "flex",
           padding: "0px 63px",
-          "justify-content": "center",
-          "align-items": "center",
+          justifyContent: "center",
+          alignItems: "center",
           flex: "1 0 0",
-          "align-self": "stretch",
+          alignSelf: "stretch",
         }}
       >
         (원이 커지는) 주민들 이미지 예정
