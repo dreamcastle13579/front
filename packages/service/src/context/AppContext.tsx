@@ -16,7 +16,7 @@ export const AppContext = React.createContext<{
   setDream: React.Dispatch<React.SetStateAction<DreamState | null>>;
 }>({
   dream: null,
-  setDream: (prev) => {},
+  setDream: () => {},
 });
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {

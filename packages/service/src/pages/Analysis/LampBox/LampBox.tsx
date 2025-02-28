@@ -2,7 +2,6 @@ import React from "react";
 
 import "./LampBox.scss";
 
-import ImgLightTotal from "./imgs/img-light-total.svg";
 import ImgLightSpark1 from "./imgs/img-light-spark1.svg";
 import ImgLightSpark2 from "./imgs/img-light-spark2.svg";
 import ImgLightSpark3 from "./imgs/img-light-spark3.svg";
@@ -19,7 +18,6 @@ const LampBox = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div className="lamp-box" ref={ref}>
       <div className="lamg-box-bg">
-        {/* <img src={ImgLightTotal} alt="" className="img-light" /> */}
         <div className="img-light">
           <img src={ImgLight} alt="" className="img-light-lit" />
           <div className="img-light-spark">

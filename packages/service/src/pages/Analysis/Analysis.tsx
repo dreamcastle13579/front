@@ -5,7 +5,7 @@ import "./Analysis.scss";
 
 import { Layout, Main } from "../../frame";
 
-import { ContentBox, Button, ButtonBox } from "design-system";
+import { Button, ButtonBox } from "design-system";
 
 import LampBox from "./LampBox";
 
