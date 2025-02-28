@@ -14,4 +14,23 @@
   top: 21%;
   left: 50%;
   transform: translateX(-50%);
+
+  animation-name: fadeInOut;
+  animation-delay: 0;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }

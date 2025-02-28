@@ -14,14 +14,23 @@ const Relief = () => {
   const handelMoveToPage = () => {
     navigate("/analysis");
   };
+
+  const [step, setStep] = React.useState(0);
+  const handleStep = () => {
+    if (step === 0) return setStep(step + 1);
+    handelMoveToPage();
+  };
   return (
     <Layout>
       <Main>
         <ContentBox>
-          <Title title="style">소원구슬에 손을 대봐라꿈!</Title>
-          {/* <Title title="style">소원구슬 안에 뭔가 보이는 것 같꿈!</Title> */}
+          <Title title="style">
+            {step === 0
+              ? "소원구슬에 손을 대봐라꿈!"
+              : "소원구슬 안에 뭔가 보이는 것 같꿈!"}
+          </Title>
 
-          <BeadSpark />
+          <BeadSpark step={step} onStep={handleStep} />
 
           <p
             className="relief-text"
@@ -29,9 +38,8 @@ const Relief = () => {
               handelMoveToPage();
             }}
           >
-            구슬을 눌러보세요!
+            {step === 0 ? "구슬을 눌러보세요!" : "빛을 눌러보세요!"}
           </p>
-          {/* <p className="relief-text">빛을 눌러보세요!</p> */}
         </ContentBox>
       </Main>
     </Layout>
