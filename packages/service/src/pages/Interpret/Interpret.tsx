@@ -36,9 +36,16 @@ const Interpret = () => {
   };
 
   const [content, setContent] = React.useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
+  const handleValidate = (value: string) => {
+    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
+    return filteredText;
   };
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const text = handleValidate(e.target.value);
+    setContent(text);
+  };
+
+  const isValidation = content.length > 9;
 
   return (
     <Layout>
@@ -49,7 +56,11 @@ const Interpret = () => {
             bottomSpace={56}
             bottom={
               <ButtonBox>
-                <Button variant="primary" onClick={handleClick}>
+                <Button
+                  variant="primary"
+                  disabled={!isValidation}
+                  onClick={handleClick}
+                >
                   이게 내 꿈이야
                 </Button>
               </ButtonBox>
@@ -60,9 +71,10 @@ const Interpret = () => {
               <Textarea
                 value={content}
                 placeholder="오늘 꾼 꿈을 입력해주세요"
+                maxLength={250}
                 onChange={handleChange}
               ></Textarea>
-              <DigitText total="250">280</DigitText>
+              <DigitText total="250">{content.length}</DigitText>
             </Bubble>
           </FullFixedBox>
         </ContentBox>
