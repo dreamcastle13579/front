@@ -21,6 +21,11 @@ import { DreamState } from "../../context/AppContext";
 
 const Nickname = () => {
   const ref = React.useRef<HTMLInputElement>(null);
+  React.useEffect(() => {
+    if (ref && ref.current) {
+      ref.current.focus();
+    }
+  }, []);
 
   const navigate = useNavigate();
   const handelMoveToPage = () => {
@@ -70,10 +75,7 @@ const Nickname = () => {
               maxLength={5}
               onChange={handleChange}
               align="center"
-              ref={(node) => {
-                ref.current = node;
-                ref.current?.focus();
-              }}
+              ref={ref}
             />
           </Bubble>
           <ButtonBox>
