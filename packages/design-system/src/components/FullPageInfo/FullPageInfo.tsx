@@ -2,7 +2,7 @@ import React from "react";
 
 import "./FullPageInfo.scss";
 
-import { ContentBox, Title } from "design-system";
+import { Title } from "design-system";
 
 interface Data {
   title?: React.ReactNode;
@@ -32,8 +32,7 @@ const FullPageInfo = (props: Props) => {
   }, []);
 
   const isAnimation = !!after;
-  console.log("after", !after);
-  console.log(before.img === after?.img);
+
   return (
     <>
       <div className={`ui-full-page-box info-${info}`}>
