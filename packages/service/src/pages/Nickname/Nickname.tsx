@@ -14,6 +14,8 @@ import {
   ContentBox,
 } from "design-system";
 
+import { useAppearEffect } from "../../hooks";
+
 import NickNameIntro from "./NickNameIntro";
 
 import { AppContext } from "../../context/AppContext";
@@ -32,13 +34,10 @@ const Nickname = () => {
     navigate("/interpret");
   };
 
-  const time = React.useRef<number>(800 + 600);
-  const [isIntroLoadingDone, setIsIntroLoadingDone] = React.useState(false);
-  React.useEffect(() => {
-    setTimeout(() => {
-      setIsIntroLoadingDone(true);
-    }, time.current);
-  }, []);
+  const { visible: isIntroVisible } = useAppearEffect({
+    delay: 800 + 600,
+    initVisible: true,
+  });
 
   const { setDream } = React.useContext(AppContext);
   const handleClick = () => {
@@ -65,7 +64,7 @@ const Nickname = () => {
   return (
     <Layout>
       <Main>
-        {!isIntroLoadingDone && <NickNameIntro />}
+        {isIntroVisible && <NickNameIntro />}
         <ContentBox>
           <Title title="info">내 이름은</Title>
           <Bubble bubble="input">

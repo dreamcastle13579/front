@@ -16,6 +16,11 @@ import {
   FullFixedBox,
 } from "design-system";
 
+import { useAppearEffect } from "../../hooks";
+
+import InterpretIntro from "./InterpretIntro";
+import Loading from "./Loading";
+
 import { AppContext } from "../../context/AppContext";
 import { DreamState } from "../../context/AppContext";
 
@@ -28,6 +33,11 @@ const Interpret = () => {
       ref.current.focus();
     }
   }, []);
+
+  const { visible: isIntroVisible } = useAppearEffect({
+    delay: 800 + 600,
+    initVisible: true,
+  });
 
   const navigate = useNavigate();
   const handelMoveToPage = () => {
@@ -82,6 +92,7 @@ const Interpret = () => {
     <Layout>
       <Main>
         <ContentBox>
+          {isIntroVisible && <InterpretIntro />}
           <FullFixedBox
             space={64}
             bottomSpace={56}
