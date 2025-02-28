@@ -3,6 +3,17 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import { Bubble, Button } from "design-system";
 
+import { AppContext } from "../../context/AppContext";
+
+const comments = [
+  { character: "memori", comment: "다른 요정들은 어떻게 생각해?" },
+  { character: "heemang", comment: "진짜.. 그럴까?" },
+  { character: "pogun", comment: "응 ㅠㅠ" },
+  { character: "chimchak", comment: "생각 좀 해봐야겠는데..." },
+  { character: "jangnan", comment: "뭐래~" },
+  { character: "dubeok", comment: "알겠어. 노력해볼게" },
+];
+
 const ResultNum = () => {
   const { id } = useParams<{ id: string }>();
   const currentId = Number(id) || 1;
@@ -21,6 +32,11 @@ const ResultNum = () => {
     handelMoveToPage();
   };
 
+  const { dream } = React.useContext(AppContext);
+
+  const message = dream?.interpret?.messages[order];
+  const comment = comments?.[order].comment;
+
   return (
     <>
       <div
@@ -38,12 +54,9 @@ const ResultNum = () => {
         (원이 커지는) 주민들 이미지 예정
       </div>
       <Bubble bubble="textbox">
-        <p className="textbox">
-          이름 의 꿈은 이런 내용이었다고 하꿈! 이런 내용은 보통 좋은 기운을 담은
-          길몽이꿈!
-        </p>
+        <p className="textbox">{message}</p>
         <Button variant="primary" onClick={handleClick}>
-          다른 애들은 어떻게 생각해?
+          {comment}
         </Button>
       </Bubble>
     </>
