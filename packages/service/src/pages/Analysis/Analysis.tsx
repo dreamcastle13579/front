@@ -15,11 +15,24 @@ import categories from "./categories";
 const Analysis = () => {
   const { dream } = React.useContext(AppContext);
 
-  const { category = "love" } = dream?.interpret || {};
-  const currentData =
-    categories?.[category as keyof typeof categories] || categories["love"];
-  const random = Math.floor(Math.random() * currentData.letters.length) + 1;
-  const letter = currentData.letters?.[random];
+  const { category = "" } = dream?.interpret || {};
+
+  const getRandom = (length: number) => {
+    return Math.floor(Math.random() * length);
+  };
+  const getLetter = (category: string) => {
+    const hasCategory = !!categories?.[category as keyof typeof categories];
+    const currentCategory = hasCategory
+      ? category
+      : Object.keys(categories)[getRandom(Object.keys(categories).length)];
+    const currentData = categories[currentCategory as keyof typeof categories];
+
+    const random = getRandom(currentData.letters?.length || 3);
+    const letter = currentData.letters?.[random];
+    return letter;
+  };
+
+  const letter = getLetter(category);
 
   return (
     <Layout>
