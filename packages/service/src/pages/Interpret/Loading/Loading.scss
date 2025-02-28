@@ -1,0 +1,15 @@
+.info-loading {
+  animation-name: fadeIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -12,6 +12,7 @@ const Loading = () => {
   return (
     <FullPageInfo
       info="loading"
+      time={800}
       before={{
         title: "꿈을 읽고 있꿈..",
         img: LoadingImg,
