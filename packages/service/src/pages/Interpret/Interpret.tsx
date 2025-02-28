@@ -29,15 +29,15 @@ import { postInterpret } from "../../api";
 
 const Interpret = () => {
   const ref = React.useRef<HTMLTextAreaElement>(null);
-  React.useEffect(() => {
-    if (ref && ref.current) {
-      ref.current.focus();
-    }
-  }, []);
 
   const { visible: isIntroVisible } = useAppearEffect({
     delay: 800 + 600,
     initVisible: true,
+    callback: () => {
+      if (ref && ref.current) {
+        ref.current.focus();
+      }
+    },
   });
 
   const navigate = useNavigate();

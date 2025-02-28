@@ -23,11 +23,6 @@ import { DreamState } from "../../context/AppContext";
 
 const Nickname = () => {
   const ref = React.useRef<HTMLInputElement>(null);
-  React.useEffect(() => {
-    if (ref && ref.current) {
-      ref.current.focus();
-    }
-  }, []);
 
   const navigate = useNavigate();
   const handelMoveToPage = () => {
@@ -37,6 +32,11 @@ const Nickname = () => {
   const { visible: isIntroVisible } = useAppearEffect({
     delay: 800 + 600,
     initVisible: true,
+    callback: () => {
+      if (ref && ref.current) {
+        ref.current.focus();
+      }
+    },
   });
 
   const { setDream } = React.useContext(AppContext);
