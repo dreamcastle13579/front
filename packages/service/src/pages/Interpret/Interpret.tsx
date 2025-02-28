@@ -20,6 +20,8 @@ import { AppContext } from "../../context/AppContext";
 import { DreamState } from "../../context/AppContext";
 
 const Interpret = () => {
+  const ref = React.useRef<HTMLTextAreaElement>(null);
+
   const navigate = useNavigate();
   const handelMoveToPage = () => {
     navigate("/result/1");
@@ -37,7 +39,7 @@ const Interpret = () => {
 
   const [content, setContent] = React.useState("");
   const handleValidate = (value: string) => {
-    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
+    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\n\r]/g, "");
     return filteredText;
   };
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -69,10 +71,12 @@ const Interpret = () => {
             <Title title="info">오늘 내가 꾼 꿈은...</Title>
             <Bubble bubble="textarea">
               <Textarea
+                ref={ref}
                 value={content}
                 placeholder="오늘 꾼 꿈을 입력해주세요"
                 maxLength={250}
                 onChange={handleChange}
+                adjustable={true}
               ></Textarea>
               <DigitText total="250">{content.length}</DigitText>
             </Bubble>
