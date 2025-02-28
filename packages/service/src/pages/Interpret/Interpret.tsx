@@ -19,6 +19,8 @@ import {
 import { AppContext } from "../../context/AppContext";
 import { DreamState } from "../../context/AppContext";
 
+import { postInterpret } from "../../api";
+
 const Interpret = () => {
   const ref = React.useRef<HTMLTextAreaElement>(null);
 
@@ -27,12 +29,14 @@ const Interpret = () => {
     navigate("/result/1");
   };
 
-  const { setDream } = React.useContext(AppContext);
-  const handleClick = () => {
+  const { dream, setDream } = React.useContext(AppContext);
+  const handleClick = async () => {
     setDream((prev) => {
       if (prev === null) return null;
       return { ...prev, content } as DreamState;
     });
+
+    await handleRequest();
 
     handelMoveToPage();
   };
@@ -48,6 +52,17 @@ const Interpret = () => {
   };
 
   const isValidation = content.length > 9;
+
+  const handleRequest = async () => {
+    if (!dream?.nickname) return null;
+    const {
+      data: { result },
+    } = await postInterpret({ nickname: dream?.nickname, content });
+
+    setDream((prev) => {
+      return { ...prev, interpret: result } as DreamState;
+    });
+  };
 
   return (
     <Layout>
