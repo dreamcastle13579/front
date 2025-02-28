@@ -53,8 +53,6 @@ const Interpret = () => {
     });
 
     await handleRequest();
-
-    handelMoveToPage();
   };
 
   const [content, setContent] = React.useState("");
@@ -132,7 +130,7 @@ const Interpret = () => {
               <DigitText total="250">{content.length}</DigitText>
             </Bubble>
           </FullFixedBox>
-          {isLoadingStarted && <Loading />}
+          {isLoadingStarted && <Loading onMoveToPgae={handelMoveToPage} />}
         </ContentBox>
       </Main>
     </Layout>

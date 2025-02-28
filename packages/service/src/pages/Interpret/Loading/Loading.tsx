@@ -8,7 +8,11 @@ import LoadingBefore from "./imgs/loading-before.svg";
 
 const LoadingImg = <img src={LoadingBefore} alt="" />;
 
-const Loading = () => {
+interface Props {
+  onMoveToPgae: Function;
+}
+
+const Loading = ({ onMoveToPgae }: Props) => {
   return (
     <FullPageInfo
       info="loading"
@@ -26,7 +30,16 @@ const Loading = () => {
       after={{
         title: "별명! 오늘 너의 꿈은...",
         img: LoadingImg,
-        content: <Button variant="primary">어떤 꿈인데?</Button>,
+        content: (
+          <Button
+            variant="primary"
+            onClick={() => {
+              onMoveToPgae();
+            }}
+          >
+            어떤 꿈인데?
+          </Button>
+        ),
       }}
     />
   );
