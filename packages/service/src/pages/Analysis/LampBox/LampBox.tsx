@@ -13,11 +13,11 @@ interface Props {
   children: React.ReactNode;
 }
 
-const LampBox = (props: Props) => {
+const LampBox = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { children } = props;
 
   return (
-    <div className="lamp-box">
+    <div className="lamp-box" ref={ref}>
       <div className="lamg-box-bg">
         {/* <img src={ImgLightTotal} alt="" className="img-light" /> */}
         <div className="img-light">
@@ -33,6 +33,6 @@ const LampBox = (props: Props) => {
       <div className="lamg-box-content">{children}</div>
     </div>
   );
-};
+});
 
 export default LampBox;

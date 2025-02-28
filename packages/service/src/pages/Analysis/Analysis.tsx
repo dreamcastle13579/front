@@ -1,4 +1,5 @@
 import React from "react";
+import html2canvas from "html2canvas";
 
 import "./Analysis.scss";
 
@@ -11,6 +12,17 @@ import LampBox from "./LampBox";
 import { AppContext } from "../../context/AppContext";
 
 import categories from "./categories";
+
+function formatDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
 
 const Analysis = () => {
   const { dream } = React.useContext(AppContext);
@@ -54,11 +66,28 @@ const Analysis = () => {
     return executeShare(url);
   };
 
+  const execImgSave = (target: HTMLDivElement, fileName: string) => {
+    if (!target) return;
+    html2canvas(target).then((canvas) => {
+      const link = document.createElement("a");
+      document.body.appendChild(link);
+      link.href = canvas.toDataURL("image/png");
+      link.download = `${fileName}.png`;
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const handleSave = () => {
+    ref.current &&
+      execImgSave(ref.current, `analysis ${formatDate(new Date())}`);
+  };
+
   return (
     <Layout>
       <Main>
         <ContentBox>
-          <LampBox>
+          <LampBox ref={ref}>
             {dream?.nickname}에게
             <br />
             <br />
@@ -68,7 +97,9 @@ const Analysis = () => {
             <Button variant="secondary" onClick={handleShare}>
               공유하기
             </Button>
-            <Button variant="primary">저장하기</Button>
+            <Button variant="primary" onClick={handleSave}>
+              저장하기
+            </Button>
           </ButtonBox>
         </ContentBox>
       </Main>
