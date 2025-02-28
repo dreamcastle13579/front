@@ -39,7 +39,7 @@ const Interpret = () => {
 
   const [content, setContent] = React.useState("");
   const handleValidate = (value: string) => {
-    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\n\r]/g, "");
+    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s]/g, "");
     return filteredText;
   };
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
