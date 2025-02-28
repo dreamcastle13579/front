@@ -45,8 +45,17 @@ const Nickname = () => {
   };
 
   const [nickname, setNickName] = React.useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setNickName(e.target.value);
+  const handleValidate = (value: string) => {
+    const koreanText = value.replace(/[^ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
+    return koreanText;
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = handleValidate(e.target.value);
+    setNickName(text);
+  };
+
+  const minLength = 2;
+  const isValidation = nickname.length > minLength;
 
   return (
     <Layout>
@@ -58,13 +67,18 @@ const Nickname = () => {
             <Input
               value={nickname}
               placeholder="이름을 입력해주세요"
+              maxLength={5}
               onChange={handleChange}
               align="center"
               ref={ref}
             />
           </Bubble>
           <ButtonBox>
-            <Button variant="primary" onClick={handleClick}>
+            <Button
+              variant="primary"
+              disabled={!isValidation}
+              onClick={handleClick}
+            >
               내 이름이야!
             </Button>
           </ButtonBox>
