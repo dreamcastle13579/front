@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./Loading.scss";
 
 import { FullPageInfo, Button } from "design-system";

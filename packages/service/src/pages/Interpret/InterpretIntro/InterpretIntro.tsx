@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./InterpretIntro.scss";
 
 import { FullPageInfo } from "design-system";

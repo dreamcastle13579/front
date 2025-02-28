@@ -1,5 +1,3 @@
-import React from "react";
-
 import Onboarding from "../pages/Onboarding";
 import Nickname from "../pages/Nickname";
 import Interpret from "../pages/Interpret";

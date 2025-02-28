@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./Character.scss";
 
 import CharaterChimchak from "./imgs/character-chimchak.svg";

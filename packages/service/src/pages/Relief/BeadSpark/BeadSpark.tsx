@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./BeadSpark.scss";
 
 import BeadImg from "./imgs/bead-relief.svg";

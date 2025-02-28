@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./NickNameIntro.scss";
 
 import { FullPageInfo } from "design-system";
