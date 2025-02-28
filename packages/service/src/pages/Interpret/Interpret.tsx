@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 import "./Interpret.scss";
 
@@ -68,18 +69,28 @@ const Interpret = () => {
 
   const isValidation = content.length > 9;
 
-  const handleRequest = async () => {
-    if (!dream?.nickname) return null;
-    try {
+  const [isLoadingStarted, setIsLoadingStarted] = React.useState(false);
+  const { refetch } = useQuery({
+    queryKey: ["/dreams/interpretation"],
+    queryFn: async () => {
+      if (!dream?.nickname) return null;
       const timeout = 3000;
-      const {
-        data: { result },
-      } = await postInterpret(
+      return await postInterpret(
         { nickname: dream?.nickname, content },
         { timeout }
       );
+    },
+    enabled: false,
+    retry: false,
+  });
+
+  const handleRequest = async () => {
+    if (!dream?.nickname) return null;
+    try {
+      setIsLoadingStarted(true);
+      const { data } = await refetch();
       setDream((prev) => {
-        return { ...prev, interpret: result } as DreamState;
+        return { ...prev, interpret: data?.data.result } as DreamState;
       });
     } catch (e) {
       console.error(e);
@@ -121,6 +132,7 @@ const Interpret = () => {
               <DigitText total="250">{content.length}</DigitText>
             </Bubble>
           </FullFixedBox>
+          {isLoadingStarted && <Loading />}
         </ContentBox>
       </Main>
     </Layout>
