@@ -20,7 +20,11 @@ export const AppContext = React.createContext<{
 });
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [dream, setDream] = React.useState<DreamState | null>(null);
+  const [dream, setDream] = React.useState<DreamState | null>({
+    nickname: "",
+    content: "",
+    interpret: undefined,
+  });
   return (
     <AppContext.Provider value={{ dream, setDream }}>
       {children}
