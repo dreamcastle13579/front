@@ -1,20 +1,23 @@
 import React from "react";
 
-interface InterPret {
+export interface InterPret {
   messages: string[];
   category: string;
 }
 
-interface DreamState {
+export interface DreamState {
   nickname?: string;
   content?: string;
   interpret?: InterPret;
 }
 
-const AppContext = React.createContext<{
+export const AppContext = React.createContext<{
   dream: DreamState | null;
-  setDream: (state: DreamState) => void;
-} | null>(null);
+  setDream: React.Dispatch<React.SetStateAction<DreamState | null>>;
+}>({
+  dream: null,
+  setDream: (prev) => {},
+});
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [dream, setDream] = React.useState<DreamState | null>(null);
