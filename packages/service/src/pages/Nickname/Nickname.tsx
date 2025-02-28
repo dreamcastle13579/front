@@ -16,6 +16,9 @@ import {
 
 import NickNameIntro from "./NickNameIntro";
 
+import { AppContext } from "../../context/AppContext";
+import { DreamState } from "../../context/AppContext";
+
 const Nickname = () => {
   const ref = React.useRef<HTMLInputElement>(null);
 
@@ -32,6 +35,19 @@ const Nickname = () => {
     }, time.current);
   }, []);
 
+  const { setDream } = React.useContext(AppContext);
+  const handleClick = () => {
+    setDream((prev) => {
+      if (prev === null) return null;
+      return { ...prev, nickname } as DreamState;
+    });
+    handelMoveToPage();
+  };
+
+  const [nickname, setNickName] = React.useState("");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setNickName(e.target.value);
+
   return (
     <Layout>
       <Main>
@@ -40,15 +56,15 @@ const Nickname = () => {
           <Title title="info">내 이름은</Title>
           <Bubble bubble="input">
             <Input
-              value=""
+              value={nickname}
               placeholder="이름을 입력해주세요"
-              onChange={(e) => {}}
+              onChange={handleChange}
               align="center"
               ref={ref}
             />
           </Bubble>
           <ButtonBox>
-            <Button variant="primary" onClick={handelMoveToPage}>
+            <Button variant="primary" onClick={handleClick}>
               내 이름이야!
             </Button>
           </ButtonBox>
