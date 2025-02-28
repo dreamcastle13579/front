@@ -56,9 +56,13 @@ const Interpret = () => {
   const handleRequest = async () => {
     if (!dream?.nickname) return null;
     try {
+      const timeout = 3000;
       const {
         data: { result },
-      } = await postInterpret({ nickname: dream?.nickname, content });
+      } = await postInterpret(
+        { nickname: dream?.nickname, content },
+        { timeout }
+      );
       setDream((prev) => {
         return { ...prev, interpret: result } as DreamState;
       });
