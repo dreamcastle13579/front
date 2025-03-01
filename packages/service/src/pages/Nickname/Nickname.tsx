@@ -14,10 +14,6 @@ import {
   ContentBox,
 } from "design-system";
 
-import { useAppearEffect } from "../../hooks";
-
-import NickNameIntro from "./NickNameIntro";
-
 import { AppContext } from "../../context/AppContext";
 import { DreamState } from "../../context/AppContext";
 
