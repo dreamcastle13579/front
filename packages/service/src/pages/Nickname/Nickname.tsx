@@ -29,15 +29,15 @@ const Nickname = () => {
     navigate("/interpret");
   };
 
-  const { visible: isIntroVisible } = useAppearEffect({
-    delay: 800 + 600,
-    initVisible: true,
-    callback: () => {
-      if (ref && ref.current) {
-        ref.current.focus();
-      }
-    },
-  });
+  // const { visible: isIntroVisible } = useAppearEffect({
+  //   delay: 800 + 600,
+  //   initVisible: true,
+  //   callback: () => {
+  //     if (ref && ref.current) {
+  //       ref.current.focus();
+  //     }
+  //   },
+  // });
 
   const { setDream } = React.useContext(AppContext);
   const handleClick = () => {
@@ -64,7 +64,7 @@ const Nickname = () => {
   return (
     <Layout>
       <Main>
-        {isIntroVisible && <NickNameIntro />}
+        {/* {isIntroVisible && <NickNameIntro />} */}
         <ContentBox>
           <Title title="info">내 이름은</Title>
           <Bubble bubble="input">
@@ -77,16 +77,16 @@ const Nickname = () => {
               inputRef={ref}
             />
           </Bubble>
-          <ButtonBox>
-            <Button
-              variant="primary"
-              disabled={!isValidation}
-              onClick={handleClick}
-            >
-              내 이름이야!
-            </Button>
-          </ButtonBox>
         </ContentBox>
+        <ButtonBox>
+          <Button
+            variant="primary"
+            disabled={!isValidation}
+            onClick={handleClick}
+          >
+            내 이름이야!
+          </Button>
+        </ButtonBox>
       </Main>
     </Layout>
   );
