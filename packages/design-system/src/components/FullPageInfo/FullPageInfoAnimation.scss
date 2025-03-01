@@ -1,9 +1,9 @@
 .ui-full-page-box .ui-full-page-title.is-ani,
-.ui-full-page-box .ui-full-page-img.is-ani,
+// .ui-full-page-box .ui-full-page-img.is-ani,
 .ui-full-page-box .ui-full-page-content.is-ani {
   .ui-full-page-before {
     animation-name: fadeOut;
-    animation-delay: 0.6s;
+    animation-delay: 0;
     animation-duration: 0.8s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;

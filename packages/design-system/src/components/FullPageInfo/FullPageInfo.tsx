@@ -15,23 +15,22 @@ interface Props {
   time?: number;
   before: Data;
   after?: Data;
+  trigger?: boolean;
 }
 
 const FullPageInfo = (props: Props) => {
-  const { info = "", time = 800, before = {}, after } = props;
+  const { info = "", trigger, before = {}, after } = props;
   const [currentState, setCurrentState] = React.useState<"before" | "after">(
     "before"
   );
 
   React.useEffect(() => {
-    if (after) {
-      setTimeout(() => {
-        setCurrentState("after");
-      }, time);
+    if (after && trigger) {
+      setCurrentState("after");
     }
-  }, []);
+  }, [trigger]);
 
-  const isAnimation = !!after;
+  const isAnimation = trigger && !!after;
 
   return (
     <>
