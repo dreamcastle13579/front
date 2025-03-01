@@ -87,16 +87,20 @@ const Interpret = () => {
 
   const handleRequest = async () => {
     if (!dream?.nickname) return null;
+    let data = dream.interpret;
+    let error: Error | null = null;
     try {
       setIsLoadingStarted(true);
-      const { data, error } = await refetch();
+      const { data: resData, error: resError } = await refetch();
+      data = resData?.data.result;
+      error = resError;
       if (error) return navigate("/loading-error");
       const interval = 800;
       setTimeout(() => {
         setIsLoadingDone(true);
       }, interval);
       setDream((prev) => {
-        return { ...prev, interpret: data?.data.result } as DreamState;
+        return { ...prev, interpret: data } as DreamState;
       });
     } catch (e) {
       console.error(e);
