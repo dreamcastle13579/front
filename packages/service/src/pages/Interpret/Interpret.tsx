@@ -75,7 +75,7 @@ const Interpret = () => {
     queryFn: async () => {
       setIsLoadingStarted(true);
       if (!dream?.nickname) return null;
-      const timeout = 3000;
+      const timeout = 10000;
       return await postInterpret(
         { nickname: dream?.nickname, content },
         { timeout }
