@@ -15,7 +15,7 @@ const EffectSwitcher = (props: Props) => {
   const [current, setCurrent] = React.useState(initial);
 
   React.useEffect(() => {
-    if (current === items.length - 1) return () => clearTimeout(timer);
+    if (current === items.length - 1) return;
     const timer = setTimeout(() => {
       setCurrent((current) => current + 1);
     }, interval);
