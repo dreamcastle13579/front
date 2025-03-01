@@ -59,7 +59,7 @@ const Nickname = () => {
   };
 
   const minLength = 2;
-  const isValidation = nickname.length > minLength;
+  const isValidation = nickname.length >= minLength;
 
   return (
     <Layout>
