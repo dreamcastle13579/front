@@ -8,14 +8,15 @@ interface Props {
   maxLength?: number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   align?: "center";
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
-const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { value, placeholder, maxLength, onChange, align } = props;
+const Input = (props: Props) => {
+  const { value, placeholder, maxLength, onChange, align, inputRef } = props;
   return (
     <div className={`ui-input ${align ? `align-${align}` : ""}`}>
       <input
-        ref={ref}
+        ref={inputRef}
         value={value}
         {...(placeholder ? { placeholder } : {})}
         {...(maxLength ? { maxLength } : {})}
@@ -23,7 +24,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       />
     </div>
   );
-});
+};
 
 export type { Props };
 export default Input;
