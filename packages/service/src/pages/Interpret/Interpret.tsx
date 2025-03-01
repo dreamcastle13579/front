@@ -55,7 +55,7 @@ const Interpret = () => {
     await handleRequest();
   };
 
-  const [content, setContent] = React.useState("");
+  const [content, setContent] = React.useState(dream?.content || "");
   const handleValidate = (value: string) => {
     const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s]/g, "");
     return filteredText;

@@ -35,7 +35,7 @@ const Nickname = () => {
   //   },
   // });
 
-  const { setDream } = React.useContext(AppContext);
+  const { dream, setDream } = React.useContext(AppContext);
   const handleClick = () => {
     setDream((prev) => {
       if (prev === null) return null;
@@ -44,7 +44,7 @@ const Nickname = () => {
     handelMoveToPage();
   };
 
-  const [nickname, setNickName] = React.useState("");
+  const [nickname, setNickName] = React.useState(dream?.nickname || "");
   const handleValidate = (value: string) => {
     const koreanText = value.replace(/[^ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
     return koreanText;
