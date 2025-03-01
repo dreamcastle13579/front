@@ -70,7 +70,7 @@ const Interpret = () => {
   const [isLoadingStarted, setIsLoadingStarted] =
     React.useState<boolean>(false);
   const [isLoadingDone, setIsLoadingDone] = React.useState<boolean>(false);
-  const { refetch } = useQuery({
+  const { refetch, error } = useQuery({
     queryKey: ["/dreams/interpretation"],
     queryFn: async () => {
       setIsLoadingStarted(true);
@@ -89,7 +89,8 @@ const Interpret = () => {
     if (!dream?.nickname) return null;
     try {
       setIsLoadingStarted(true);
-      const { data } = await refetch();
+      const { data, error } = await refetch();
+      if (error) return navigate("/loading-error");
       const interval = 800;
       setTimeout(() => {
         setIsLoadingDone(true);
