@@ -1,9 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Lottie from "react-lottie";
 
 import { Bubble, Button } from "design-system";
 
 import { AppContext } from "../../context/AppContext";
+
+import fullAnimation from "./lotties/full-animation.json";
 
 const comments = [
   { character: "memori", comment: "다른 요정들은 어떻게 생각해?" },
@@ -37,25 +40,44 @@ const ResultNum = () => {
   const message = dream?.interpret?.messages[order];
   const comment = comments?.[order].comment;
 
+  const lottieOptions = {
+    loop: false,
+    autoplay: false,
+    animationData: fullAnimation,
+    onEnterFrame: () => setIsPlaying(true),
+    onComplete: () => setIsPlaying(false),
+  };
+  const frameSequences = [
+    { start: 0, end: 80 },
+    { start: 80, end: 180 },
+    { start: 180, end: 280 },
+    { start: 280, end: 380 },
+    { start: 380, end: 480 },
+    { start: 480, end: 580 },
+    { start: 580, end: 680 },
+  ];
+
+  const lottieRef = React.useRef<any>(null);
+  const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+  React.useEffect(() => {
+    const anim = lottieRef.current?.anim;
+    if (!anim) return;
+
+    anim.stop();
+    const frame = frameSequences[order];
+    anim.playSegments([frame.start, frame.end], true);
+  }, [order]);
+
   return (
     <>
-      <div
-        style={{
-          height: "327px",
-          border: "1px solid red",
-          display: "flex",
-          padding: "0px 63px",
-          justifyContent: "center",
-          alignItems: "center",
-          flex: "1 0 0",
-          alignSelf: "stretch",
-        }}
-      >
-        (원이 커지는) 주민들 이미지 예정
-      </div>
+      <Lottie options={lottieOptions} ref={lottieRef} />
       <Bubble bubble="textbox">
         <p className="textbox">{message}</p>
-        <Button variant="primary" onClick={handleClick}>
+        <Button
+          variant="primary"
+          onClick={handleClick}
+          className={isPlaying ? "is-prevent" : ""}
+        >
           {comment}
         </Button>
       </Bubble>
