@@ -80,9 +80,7 @@ const Onboarding = () => {
             <div className="onboarding-title">
               <img src={Logo} alt="몽글몽글" />
             </div>
-            <div className="onboarding-sub-title">
-              만나서 반갑꿈, <br /> 뭐라고 불러줄꿈?
-            </div>
+            <div className="onboarding-sub-title">뭐라고 불러줄꿈?</div>
             <div className="onboarding-img">
               <Lottie
                 options={{
@@ -93,11 +91,11 @@ const Onboarding = () => {
               />
             </div>
             <p className="onboarding-text">
+              만나서 반갑꿈! <br />
               우리는 꿈의 요정이꿈!
               <br />
               <span>
-                꿈 얘기를 들려주면 <br />
-                오직 너만을 위해 해석해주겠꿈!
+                네 꿈을  들려주면 <br />딱 맞는 해석을 해주겠꿈!
               </span>
             </p>
           </div>

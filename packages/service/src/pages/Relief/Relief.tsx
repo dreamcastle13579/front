@@ -25,9 +25,14 @@ const Relief = () => {
       <Main>
         <ContentBox>
           <Title title="style">
-            {step === 0
-              ? "소원구슬에 손을 대봐라꿈!"
-              : "소원구슬 안에 뭔가 보이는 것 같꿈!"}
+            {step === 0 ? (
+              "소원구슬에 손을 대봐라꿈!"
+            ) : (
+              <>
+                소원구슬 안에 <br />
+                   뭔가 보      이는 것 같꿈!
+              </>
+            )}
           </Title>
 
           <BeadSpark step={step} onStep={handleStep} />
