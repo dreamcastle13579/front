@@ -3,7 +3,7 @@ import Lottie from "react-lottie";
 
 import "./Loading.scss";
 
-import { FullPageInfo, Button } from "design-system";
+import { FullPageInfo, EffectSwitcher, Button } from "design-system";
 
 import loadingLottie from "./lotties/loading-lottie.json";
 import loadingLottieAfter from "./lotties/loading-lottie-after.json";
@@ -42,7 +42,13 @@ const Loading = ({ trigger, onMoveToPgae }: Props) => {
       info="loading"
       trigger={trigger}
       before={{
-        title: "꿈을 읽고 있꿈..",
+        title: (
+          <EffectSwitcher
+            items={["꿈을 읽고 있꿈..", "조금만 기다려라꿈", "거의 다했다꿈.."]}
+            effect="fade"
+            interval={2000}
+          />
+        ),
         img: LoadingLottieBefore,
         content: (
           <div className="loading-before">
