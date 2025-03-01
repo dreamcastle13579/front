@@ -1,8 +1,10 @@
+import Lottie from "react-lottie";
+
 import "./InterpretIntro.scss";
 
 import { FullPageInfo } from "design-system";
 
-import ImgInterpretIntro from "./imgs/img-interpret-intro.svg";
+import lottieInterpretIntro from "./lotties/img-interpret-intro.json";
 
 const InterpretIntro = () => {
   return (
@@ -17,7 +19,15 @@ const InterpretIntro = () => {
             우리가 한 번 들어볼게꿈
           </>
         ),
-        img: <img src={ImgInterpretIntro} alt="" />,
+        img: (
+          <Lottie
+            options={{
+              autoplay: true,
+              loop: true,
+              animationData: lottieInterpretIntro,
+            }}
+          />
+        ),
       }}
     />
   );
