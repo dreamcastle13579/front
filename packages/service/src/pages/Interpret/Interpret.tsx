@@ -31,7 +31,7 @@ const Interpret = () => {
   const ref = React.useRef<HTMLTextAreaElement>(null);
 
   const { visible: isIntroVisible } = useAppearEffect({
-    delay: 800 + 600,
+    delay: 800,
     initVisible: true,
     callback: () => {
       if (ref && ref.current) {
@@ -67,10 +67,13 @@ const Interpret = () => {
 
   const isValidation = content.length > 9;
 
-  const [isLoadingStarted, setIsLoadingStarted] = React.useState(false);
+  const [isLoadingStarted, setIsLoadingStarted] =
+    React.useState<boolean>(false);
+  const [isLoadingDone, setIsLoadingDone] = React.useState<boolean>(false);
   const { refetch } = useQuery({
     queryKey: ["/dreams/interpretation"],
     queryFn: async () => {
+      setIsLoadingStarted(true);
       if (!dream?.nickname) return null;
       const timeout = 3000;
       return await postInterpret(
@@ -87,6 +90,10 @@ const Interpret = () => {
     try {
       setIsLoadingStarted(true);
       const { data } = await refetch();
+      const interval = 800;
+      setTimeout(() => {
+        setIsLoadingDone(true);
+      }, interval);
       setDream((prev) => {
         return { ...prev, interpret: data?.data.result } as DreamState;
       });
@@ -130,7 +137,9 @@ const Interpret = () => {
               <DigitText total="250">{content.length}</DigitText>
             </Bubble>
           </FullFixedBox>
-          {isLoadingStarted && <Loading onMoveToPgae={handelMoveToPage} />}
+          {isLoadingStarted && (
+            <Loading onMoveToPgae={handelMoveToPage} trigger={isLoadingDone} />
+          )}
         </ContentBox>
       </Main>
     </Layout>
