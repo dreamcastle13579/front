@@ -1,7 +1,8 @@
 .lamp-box {
   position: relative;
-  min-height: calc(100vh - 120px);
+  // min-height: calc(100vh - 120px); // * for design
   padding: 32px 20px 0;
+  height: 100%;
 }
 
 .lamp-box .lamg-box-bg {
@@ -39,19 +40,19 @@
 
 .lamp-box .lamg-box-bg .img-light .img-light-spark1 {
   position: absolute;
-  bottom: 92px;
+  bottom: 33px;
   left: 35px;
 }
 
 .lamp-box .lamg-box-bg .img-light .img-light-spark2 {
   position: absolute;
-  bottom: 100px;
+  bottom: 33px;
   right: 28px;
 }
 
 .lamp-box .lamg-box-bg .img-light .img-light-spark3 {
   position: absolute;
-  bottom: 169px;
+  bottom: 116px;
   left: 20px;
 }
 
@@ -72,6 +73,8 @@
   max-width: 335px;
   box-sizing: border-box;
   margin: 0 auto;
+  box-sizing: border-box;
+  height: 547px;
 
   font-family: SejongGeulggot;
   font-size: 22px;
