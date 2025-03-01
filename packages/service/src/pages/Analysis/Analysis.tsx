@@ -11,7 +11,7 @@ import LampBox from "./LampBox";
 
 import { AppContext } from "../../context/AppContext";
 
-import categories from "./categories";
+import categories, { categoryKeys } from "./categories";
 
 function formatDate(date: Date) {
   const year = date.getFullYear();
@@ -28,23 +28,33 @@ const Analysis = () => {
   const { dream } = React.useContext(AppContext);
 
   const { category = "" } = dream?.interpret || {};
+  const categoryKey = Object.entries(categoryKeys).reduce(
+    (acc, [key, value]) => {
+      if (acc) return acc;
+      if (category === value) acc = key;
+      return acc;
+    },
+    ""
+  );
 
   const getRandom = (length: number) => {
     return Math.floor(Math.random() * length);
   };
-  const getLetter = (category: string) => {
-    const hasCategory = !!categories?.[category as keyof typeof categories];
-    const currentCategory = hasCategory
-      ? category
+  const getLetter = (categoryKey: string) => {
+    const hasCategoryKey =
+      !!categories?.[categoryKey as keyof typeof categories];
+    const currentCategoryKey = hasCategoryKey
+      ? categoryKey
       : Object.keys(categories)[getRandom(Object.keys(categories).length)];
-    const currentData = categories[currentCategory as keyof typeof categories];
+    const currentData =
+      categories[currentCategoryKey as keyof typeof categories];
 
     const random = getRandom(currentData.letters?.length || 3);
     const letter = currentData.letters?.[random];
     return letter;
   };
 
-  const letter = getLetter(category);
+  const letter = getLetter(categoryKey);
 
   const executeShare = (url: string) => {
     navigator.share({ url });

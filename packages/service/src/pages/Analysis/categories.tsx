@@ -1,3 +1,12 @@
+export const categoryKeys = {
+  love: "사랑&관계",
+  challenge: "성취&도전",
+  money: "재물&기회",
+  health: "건강&회복",
+  horror: "두려움&극복",
+  lucky: "행운&긍정적변화",
+};
+
 const categories = {
   love: {
     letters: [
