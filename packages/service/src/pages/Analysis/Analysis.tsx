@@ -59,7 +59,7 @@ const Analysis = () => {
   };
   const handleShare = () => {
     const url = import.meta.env.VITE_BASE_URL;
-    if (!navigator.canShare()) {
+    if (!navigator.canShare?.()) {
       return executeCopy(url);
     }
 
