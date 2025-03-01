@@ -10,6 +10,7 @@ import { TextBox } from "./components/TextBox";
 import { Character } from "./components/Character";
 import { FullPageInfo } from "./components/FullPageInfo";
 import { FullFixedBox } from "./components/FullFixedBox";
+import { EffectSwitcher } from "./components/EffectSwitcher";
 
 export {
   Input,
@@ -24,4 +25,5 @@ export {
   Character,
   FullPageInfo,
   FullFixedBox,
+  EffectSwitcher,
 };

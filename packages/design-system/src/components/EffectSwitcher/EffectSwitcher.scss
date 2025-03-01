@@ -1,0 +1,48 @@
+.ui-effect-switcher {
+  position: relative;
+  width: 100%;
+}
+
+.effect-switcher-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.effect-switcher-item {
+  opacity: 0;
+}
+
+.effect-switcher-item.is-prev {
+  animation-name: fadeOut;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+.effect-switcher-item.is-current.is-initial {
+  animation-delay: 0;
+}
+.effect-switcher-item.is-current {
+  animation-name: fadeIn;
+  animation-delay: 500ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
