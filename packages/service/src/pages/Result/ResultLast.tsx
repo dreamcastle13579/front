@@ -1,14 +1,20 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Title, TextBox, Button, ButtonBox } from "design-system";
 
 import Bead from "./Bead";
 
+import { AppContext } from "../../context/AppContext";
+
 const Result = () => {
   const navigate = useNavigate();
   const handelMoveToPage = () => {
     navigate("/relief");
   };
+
+  const { dream } = React.useContext(AppContext);
+
   return (
     <>
       <div className="full-box result-full-box">
@@ -16,7 +22,7 @@ const Result = () => {
           <Title title="style">우리의 해석은 여기까지라꿈!</Title>
           <Bead />
           <TextBox>
-            별명 위해 특별히
+            {dream?.nickname} 위해 특별히
             <br /> 소원 구슬을 준비했꿈! <br />
             <br />
             원하는 것을 빌어봐라꿈

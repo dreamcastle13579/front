@@ -1,8 +1,12 @@
+import React from "react";
+
 import "./Loading.scss";
 
 import { FullPageInfo, Button } from "design-system";
 
 import LoadingBefore from "./imgs/loading-before.svg";
+
+import { AppContext } from "../../../context/AppContext";
 
 const LoadingImg = <img src={LoadingBefore} alt="" />;
 
@@ -11,6 +15,8 @@ interface Props {
 }
 
 const Loading = ({ onMoveToPgae }: Props) => {
+  const { dream } = React.useContext(AppContext);
+
   return (
     <FullPageInfo
       info="loading"
@@ -26,7 +32,7 @@ const Loading = ({ onMoveToPgae }: Props) => {
         ),
       }}
       after={{
-        title: "별명! 오늘 너의 꿈은...",
+        title: `${dream?.nickname}! 오늘 너의 꿈은...`,
         img: LoadingImg,
         content: (
           <Button
