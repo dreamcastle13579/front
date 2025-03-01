@@ -105,7 +105,7 @@ const Analysis = () => {
           </LampBox>
           <ButtonBox>
             <Button variant="secondary" onClick={handleShare}>
-              공유하기
+              {!navigator.canShare?.() ? "링크 복사" : "공유하기"}
             </Button>
             <Button variant="primary" onClick={handleSave}>
               저장하기
