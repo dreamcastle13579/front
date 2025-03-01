@@ -74,7 +74,7 @@ const Nickname = () => {
               maxLength={5}
               onChange={handleChange}
               align="center"
-              ref={ref}
+              inputRef={ref}
             />
           </Bubble>
           <ButtonBox>
