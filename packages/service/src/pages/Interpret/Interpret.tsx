@@ -31,7 +31,7 @@ const Interpret = () => {
   const ref = React.useRef<HTMLTextAreaElement>(null);
 
   const { visible: isIntroVisible } = useAppearEffect({
-    delay: 800,
+    delay: 2000,
     initVisible: true,
     callback: () => {
       if (ref && ref.current) {
