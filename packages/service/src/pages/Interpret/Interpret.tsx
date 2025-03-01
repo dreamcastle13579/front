@@ -131,7 +131,7 @@ const Interpret = () => {
               </ButtonBox>
             }
           >
-            <Title title="info">오늘 내가 꾼 꿈은...</Title>
+            <Title title="info">오늘은...</Title>
             <Bubble bubble="textarea">
               <Textarea
                 textareaRef={ref}

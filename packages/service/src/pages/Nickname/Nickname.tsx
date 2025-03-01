@@ -62,7 +62,7 @@ const Nickname = () => {
       <Main>
         {/* {isIntroVisible && <NickNameIntro />} */}
         <ContentBox>
-          <Title title="info">내 이름은</Title>
+          <Title title="info">나는... </Title>
           <Bubble bubble="input">
             <Input
               value={nickname}
