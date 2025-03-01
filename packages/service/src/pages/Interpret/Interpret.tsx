@@ -136,7 +136,7 @@ const Interpret = () => {
               <Textarea
                 textareaRef={ref}
                 value={content}
-                placeholder="오늘 꾼 꿈을 입력해주세요"
+                placeholder="오늘 꾼 꿈을 10글자 이상 입력해주세요"
                 maxLength={250}
                 onChange={handleChange}
                 adjustable={true}
