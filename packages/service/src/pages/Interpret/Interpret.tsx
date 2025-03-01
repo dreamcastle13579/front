@@ -91,10 +91,12 @@ const Interpret = () => {
     let error: Error | null = null;
     try {
       setIsLoadingStarted(true);
-      const { data: resData, error: resError } = await refetch();
-      data = resData?.data.result;
-      error = resError;
-      if (error) return navigate("/loading-error");
+      if (!data) {
+        const { data: resData, error: resError } = await refetch();
+        data = resData?.data.result;
+        error = resError;
+        if (error) return navigate("/loading-error");
+      }
       const interval = 800;
       setTimeout(() => {
         setIsLoadingDone(true);
