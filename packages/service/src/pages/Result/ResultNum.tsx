@@ -70,7 +70,9 @@ const ResultNum = () => {
 
   return (
     <>
-      <Lottie options={lottieOptions} ref={lottieRef} />
+      <div className="result-num-step">
+        <Lottie options={lottieOptions} ref={lottieRef} />
+      </div>
       <Bubble bubble="textbox">
         <p className="textbox">{message}</p>
         <Button

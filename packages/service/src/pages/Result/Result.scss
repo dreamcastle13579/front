@@ -13,3 +13,11 @@
 .full-box.result-full-box {
   min-height: calc(100vh - 64px);
 }
+
+.result-num-step {
+  padding-top: 32px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  max-width: 375px;
+  box-sizing: border-box;
+}
