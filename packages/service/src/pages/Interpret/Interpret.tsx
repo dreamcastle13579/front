@@ -70,7 +70,7 @@ const Interpret = () => {
   const [isLoadingStarted, setIsLoadingStarted] =
     React.useState<boolean>(false);
   const [isLoadingDone, setIsLoadingDone] = React.useState<boolean>(false);
-  const { refetch, error } = useQuery({
+  const { refetch } = useQuery({
     queryKey: ["/dreams/interpretation"],
     queryFn: async () => {
       setIsLoadingStarted(true);
