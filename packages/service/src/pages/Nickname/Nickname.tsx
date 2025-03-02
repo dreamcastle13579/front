@@ -25,6 +25,11 @@ const Nickname = () => {
     navigate("/interpret");
   };
 
+  React.useEffect(() => {
+    if (ref && ref.current) {
+      ref.current.focus();
+    }
+  }, []);
   // const { visible: isIntroVisible } = useAppearEffect({
   //   delay: 800 + 600,
   //   initVisible: true,
