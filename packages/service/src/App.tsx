@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./styles/index.scss";
 
 import { initGA, logPageView } from "./analysis/ga";
+import { initGTM } from "./analysis/gtm";
 
 import RootRoutes from "./Routes";
 
@@ -23,6 +24,11 @@ function App() {
     initGA();
     logPageView(location.pathname);
   }, [location]);
+
+  React.useEffect(() => {
+    initGTM();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppProvider>
