@@ -56,12 +56,9 @@ const Interpret = () => {
   };
 
   const [content, setContent] = React.useState(dream?.content || "");
-  const handleValidate = (value: string) => {
-    const filteredText = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s]/g, "");
-    return filteredText;
-  };
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const text = handleValidate(e.target.value);
+    const text = e.target.value;
     setContent(text);
   };
 
