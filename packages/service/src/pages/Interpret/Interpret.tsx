@@ -31,7 +31,7 @@ const Interpret = () => {
   const ref = React.useRef<HTMLTextAreaElement>(null);
 
   const { visible: isIntroVisible } = useAppearEffect({
-    delay: 2000,
+    delay: 2400,
     initVisible: true,
     callback: () => {
       if (ref && ref.current) {
@@ -94,7 +94,7 @@ const Interpret = () => {
         error = resError;
         if (error) return navigate("/loading-error");
       }
-      const interval = 800;
+      const interval = 2400;
       setTimeout(() => {
         setIsLoadingDone(true);
       }, interval);
